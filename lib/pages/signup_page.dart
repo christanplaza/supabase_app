@@ -3,7 +3,6 @@ import 'package:provider/provider.dart';
 import 'package:supabase_app/pages/home_page.dart';
 import 'package:supabase_app/providers/auth_provider.dart';
 import 'package:supabase_app/services/supabase_service.dart';
-import 'package:supabase_flutter/supabase_flutter.dart';
 
 class SignUpPage extends StatefulWidget {
   const SignUpPage({super.key});
@@ -43,6 +42,7 @@ class _SignUpPageState extends State<SignUpPage> {
           email: email,
           password: password,
         );
+        print(res);
         // Set the authentication state
         context.read<AuthProvider>().setAuthenticationState(true, res.user!.id);
         // Navigate to the homepage
@@ -50,9 +50,9 @@ class _SignUpPageState extends State<SignUpPage> {
           context,
           MaterialPageRoute(builder: (context) => HomePage()),
         );
-      } catch (error) {
+      } catch (e) {
         // Handle sign-up error, e.g., display an error message
-        print('Sign-up error: $error');
+        print('Sign-up error: $e');
       }
     }
   }

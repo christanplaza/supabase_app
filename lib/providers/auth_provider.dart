@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 
-class AuthProvider extends ChangeNotifier {
+class AuthProvider with ChangeNotifier {
   bool _isAuthenticated = false;
-  String _userId = '';
+  String? _userId;
 
   bool get isAuthenticated => _isAuthenticated;
-  String get userId => _userId;
+  String? get userId => _userId;
 
-  void setAuthenticationState(bool isAuthenticated, String userId) {
+  void setAuthenticationState(bool isAuthenticated, String? userId) {
     _isAuthenticated = isAuthenticated;
     _userId = userId;
     notifyListeners();

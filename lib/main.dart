@@ -28,7 +28,7 @@ class MyApp extends StatelessWidget {
       ),
       home: Consumer<AuthProvider>(
         builder: (context, authProvider, _) {
-          return authProvider.isAuthenticated ? HomePage() : LoginPage();
+          return authProvider.isAuthenticated ? HomePage() : const LoginPage();
         },
       ),
     );

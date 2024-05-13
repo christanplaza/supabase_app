@@ -8,6 +8,10 @@ class SupabaseService {
   static SupabaseClient get client => Supabase.instance.client;
 
   static Future<void> initialize() async {
-    await Supabase.initialize(url: apiUrl, anonKey: anonKey);
+    try {
+      await Supabase.initialize(url: apiUrl, anonKey: anonKey);
+    } catch (e) {
+      print('Supabase initialize error: $e');
+    }
   }
 }
